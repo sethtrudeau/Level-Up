@@ -1,0 +1,12 @@
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body { font-family: 'DM Sans', system-ui, sans-serif; color: #2a2a2a; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Livvic', 'DM Sans', system-ui, sans-serif; }
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+button:focus-visible, a:focus-visible {
+  outline: 2px solid #d97757; outline-offset: 2px;
+}
