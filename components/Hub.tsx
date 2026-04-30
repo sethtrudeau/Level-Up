@@ -228,9 +228,8 @@ function Portal({ portal, featureCount, assignedLevel, pendingLevel, completedCo
   );
 }
 
-export default function Hub({ features, onLogin }: { features: Feature[]; onLogin: () => void }) {
+export default function Hub({ features }: { features: Feature[] }) {
   const progress = useProgress();
-  const { state } = progress;
 
   const portals = [
     {
@@ -287,32 +286,6 @@ export default function Hub({ features, onLogin }: { features: Feature[]; onLogi
             </div>
             <div style={{fontSize: 12, color:'#666'}}>Challenges for educators building with Playlab</div>
           </div>
-        </div>
-        <div>
-          {state.user ? (
-            <div style={{display:'inline-flex', alignItems:'center', gap: 10, background:'#fffdf6', border:'1px solid rgba(0,0,0,0.08)', borderRadius: 99, padding:'6px 10px 6px 6px'}}>
-              <div style={{
-                width: 28, height: 28, borderRadius: 14, background:'#d97757',
-                color:'#fff', fontWeight: 800, fontSize: 13,
-                display:'flex', alignItems:'center', justifyContent:'center'
-              }}>
-                {state.user.name.slice(0,1).toUpperCase()}
-              </div>
-              <span style={{fontSize: 13, fontWeight: 600, color:'#2a2a2a'}}>{state.user.name}</span>
-              <button onClick={() => progress.logout()} style={{
-                border:'none', background:'transparent', cursor:'pointer',
-                fontSize: 12, color:'#888', fontFamily:'inherit'
-              }}>Sign out</button>
-            </div>
-          ) : (
-            <button onClick={onLogin} style={{
-              border:'1px solid #2a2a2a', background:'#2a2a2a', color:'#fffdf6',
-              borderRadius: 99, padding:'9px 18px', fontSize: 13, fontWeight: 700,
-              cursor:'pointer', fontFamily:'inherit'
-            }}>
-              Sign in to save progress
-            </button>
-          )}
         </div>
       </div>
 
@@ -384,7 +357,7 @@ export default function Hub({ features, onLogin }: { features: Feature[]; onLogi
           <div>
             <div style={{fontSize: 13, fontWeight: 700, color:'#2a2a2a'}}>Your Level Up badges</div>
             <div style={{fontSize: 12, color:'#666'}}>
-              {state.visitOrder.length}/3 places visited · {allFinished ? 'Collection complete 🏆' : `${progress.themeCompletedCount('garden') + progress.themeCompletedCount('lab') + progress.themeCompletedCount('playground')} / ${features.length * 3} challenges cleared`}
+              {progress.state.visitOrder.length}/3 places visited · {allFinished ? 'Collection complete 🏆' : `${progress.themeCompletedCount('garden') + progress.themeCompletedCount('lab') + progress.themeCompletedCount('playground')} / ${features.length * 3} challenges cleared`}
             </div>
           </div>
         </div>
@@ -396,14 +369,6 @@ export default function Hub({ features, onLogin }: { features: Feature[]; onLogi
         </div>
       </div>
 
-      {/* Footer */}
-      <div style={{
-        position:'relative', zIndex:2,
-        maxWidth: 1200, margin:'22px auto 0', textAlign:'center',
-        fontSize: 12, color:'#888'
-      }}>
-        {state.user ? `Progress is saved to this browser as ${state.user.name}.` : 'Sign in to save progress and badges between sessions.'}
-      </div>
     </div>
   );
 }

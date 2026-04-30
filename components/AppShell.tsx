@@ -6,7 +6,6 @@ import GardenView from '@/components/GardenView';
 import LabView from '@/components/LabView';
 import PlaygroundView from '@/components/PlaygroundView';
 import ChallengeModal from '@/components/ChallengeModal';
-import LoginModal from '@/components/LoginModal';
 import type { Feature } from '@/lib/types';
 
 // App shell: routes between Hub (landing) and a Theme view (Garden/Lab/Playground).
@@ -16,16 +15,10 @@ export default function AppShell({ features }: { features: Feature[] }) {
   const { state } = progress;
 
   const [active, setActive] = useState<Feature | null>(null);
-  const [loginOpen, setLoginOpen] = useState(false);
 
   // If we're on the hub, render it.
   if (state.screen === 'hub' || !state.currentTheme) {
-    return (
-      <>
-        <Hub features={features} onLogin={() => setLoginOpen(true)} />
-        {loginOpen && <LoginModal onClose={() => setLoginOpen(false)} />}
-      </>
-    );
+    return <Hub features={features} />;
   }
 
   // Otherwise we're inside a theme.
@@ -112,28 +105,6 @@ export default function AppShell({ features }: { features: Feature[] }) {
             </span>
           </div>
 
-          {state.user ? (
-            <div style={{display:'inline-flex', alignItems:'center', gap: 8, background:'#fffdf6', border:'1px solid rgba(0,0,0,0.08)', borderRadius: 99, padding:'4px 10px 4px 4px'}}>
-              <div style={{
-                width: 24, height: 24, borderRadius: 12, background:'#d97757',
-                color:'#fff', fontWeight: 800, fontSize: 11,
-                display:'flex', alignItems:'center', justifyContent:'center'
-              }}>{state.user.name.slice(0,1).toUpperCase()}</div>
-              <span style={{fontSize: 12, fontWeight: 600, color:'#2a2a2a'}}>{state.user.name}</span>
-            </div>
-          ) : (
-            <button
-              onClick={() => setLoginOpen(true)}
-              style={{
-                border:'1px solid rgba(0,0,0,0.1)', background:'#fffdf6',
-                borderRadius: 99, padding:'7px 12px', fontSize: 12, fontWeight: 700,
-                cursor:'pointer', color:'#2a2a2a', fontFamily:'inherit',
-                boxShadow:'0 1px 2px rgba(0,0,0,0.04)'
-              }}
-            >
-              Sign in
-            </button>
-          )}
         </div>
       </div>
 
@@ -185,8 +156,6 @@ export default function AppShell({ features }: { features: Feature[] }) {
         />
       )}
 
-      {/* Login modal */}
-      {loginOpen && <LoginModal onClose={() => setLoginOpen(false)} />}
     </div>
   );
 }

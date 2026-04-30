@@ -19,7 +19,6 @@ interface ProgressState {
   completed: { garden: Record<string, boolean>; lab: Record<string, boolean>; playground: Record<string, boolean> };
   screen: 'hub' | 'theme';
   currentTheme: 'garden' | 'lab' | 'playground' | null;
-  user: { name: string; email: string } | null;
 }
 
 const DEFAULT_STATE: ProgressState = {
@@ -27,7 +26,6 @@ const DEFAULT_STATE: ProgressState = {
   completed: { garden: {}, lab: {}, playground: {} },
   screen: 'hub',
   currentTheme: null,
-  user: null
 };
 
 function loadFromStorage(): ProgressState {
@@ -103,18 +101,8 @@ function themeFinished(theme: string, features: Feature[]): boolean {
   return features.every(f => isComplete(theme, f.id));
 }
 
-function login(name: string, email: string) {
-  state = { ...state, user: { name: name || 'Educator', email: email || '' } };
-  save();
-}
-
-function logout() {
-  state = { ...state, user: null };
-  save();
-}
-
 function reset() {
-  state = { ...DEFAULT_STATE, user: state.user };
+  state = { ...DEFAULT_STATE };
   save();
 }
 
@@ -140,8 +128,6 @@ export function useProgress() {
     isComplete,
     themeCompletedCount,
     themeFinished,
-    login,
-    logout,
     reset
   };
 }
