@@ -26,7 +26,6 @@ const FEATURES: Feature[] = [
           'Write 3 memory instructions focused on learning state, not personal info.',
           'Test with two different learner personas and check the memory panel.'
         ],
-        estMinutes: 15
       },
       {
         name: 'Grow',
@@ -39,7 +38,6 @@ const FEATURES: Feature[] = [
           'Have the app propose next-step practice based on memory, not just the prompt.',
           'Run a 3-session roleplay; confirm memory evolves across sessions.'
         ],
-        estMinutes: 30
       },
       {
         name: 'Master',
@@ -52,12 +50,11 @@ const FEATURES: Feature[] = [
           'Add guardrails explicitly preventing storage of PII.',
           'Publish and pilot with 3+ learners; review the memory panel weekly.'
         ],
-        estMinutes: 60
       }
     ],
     exampleApps: [
-      { name: 'Essay Coach', embedUrl: 'https://www.playlab.ai/' },
-      { name: 'Fractions Tutor', embedUrl: 'https://www.playlab.ai/' }
+      { name: 'Essay Coach', embedCode: '<iframe src="https://www.playlab.ai/" style="width:100%;aspect-ratio:16/10;border:none" allowfullscreen></iframe>' },
+      { name: 'Fractions Tutor', embedCode: '<iframe src="https://www.playlab.ai/" style="width:100%;aspect-ratio:16/10;border:none" allowfullscreen></iframe>' }
     ],
     learn: [
       { title: 'Adaptive Memory feature guide', url: 'https://learn.playlab.ai/features/Adaptive%20Memory' },
@@ -86,7 +83,6 @@ const FEATURES: Feature[] = [
           'Have the AI describe what it sees in plain language.',
           'Test with a handwritten note, a diagram, and a photo.'
         ],
-        estMinutes: 15
       },
       {
         name: 'Grow',
@@ -99,7 +95,6 @@ const FEATURES: Feature[] = [
           'Return feedback with "what works / what to try next".',
           'Include a generated sketch or diagram that illustrates the suggestion.'
         ],
-        estMinutes: 45
       },
       {
         name: 'Master',
@@ -112,12 +107,11 @@ const FEATURES: Feature[] = [
           'Add guardrails around generated imagery for age-appropriate output.',
           'Pilot with one class; export the generated artifacts.'
         ],
-        estMinutes: 90
       }
     ],
     exampleApps: [
-      { name: 'Sketch-to-Concept', embedUrl: 'https://www.playlab.ai/' },
-      { name: 'Art Critique Buddy', embedUrl: 'https://www.playlab.ai/' }
+      { name: 'Sketch-to-Concept', embedCode: '<iframe src="https://www.playlab.ai/" style="width:100%;aspect-ratio:16/10;border:none" allowfullscreen></iframe>' },
+      { name: 'Art Critique Buddy', embedCode: '<iframe src="https://www.playlab.ai/" style="width:100%;aspect-ratio:16/10;border:none" allowfullscreen></iframe>' }
     ],
     learn: [
       { title: 'Feature Documentation overview', url: 'https://learn.playlab.ai/features/Overview' },
@@ -146,7 +140,6 @@ const FEATURES: Feature[] = [
           'Record three test sessions with different voices.',
           'Note where transcription falters and add a fallback.'
         ],
-        estMinutes: 15
       },
       {
         name: 'Grow',
@@ -159,7 +152,6 @@ const FEATURES: Feature[] = [
           'Have the AI correct pronunciation gently and rephrase.',
           'Add a "recap" step at the end of each session.'
         ],
-        estMinutes: 45
       },
       {
         name: 'Master',
@@ -172,12 +164,11 @@ const FEATURES: Feature[] = [
           'Store transcripts so learners can review between sessions.',
           'Pilot with an ELL class and collect feedback.'
         ],
-        estMinutes: 75
       }
     ],
     exampleApps: [
-      { name: 'Socratic Circle', embedUrl: 'https://www.playlab.ai/' },
-      { name: 'Spanish Cafe', embedUrl: 'https://www.playlab.ai/' }
+      { name: 'Socratic Circle', embedCode: '<iframe src="https://www.playlab.ai/" style="width:100%;aspect-ratio:16/10;border:none" allowfullscreen></iframe>' },
+      { name: 'Spanish Cafe', embedCode: '<iframe src="https://www.playlab.ai/" style="width:100%;aspect-ratio:16/10;border:none" allowfullscreen></iframe>' }
     ],
     learn: [
       { title: 'Voice Inputs', url: 'https://learn.playlab.ai/features/Voice%20Input' },
@@ -207,7 +198,6 @@ const FEATURES: Feature[] = [
           'Have the AI review changes as the learner types.',
           'Pilot with 2 students and collect their reactions.'
         ],
-        estMinutes: 20
       },
       {
         name: 'Grow',
@@ -220,7 +210,6 @@ const FEATURES: Feature[] = [
           'Offer "accept / try again / explain more" choices per suggestion.',
           'Track revisions through the activity log.'
         ],
-        estMinutes: 45
       },
       {
         name: 'Master',
@@ -233,12 +222,11 @@ const FEATURES: Feature[] = [
           'Include a student-facing reflection step at the end.',
           'Ship it; run with a full class.'
         ],
-        estMinutes: 90
       }
     ],
     exampleApps: [
-      { name: 'Thesis Sharpener', embedUrl: 'https://www.playlab.ai/' },
-      { name: 'Lab Report Coach', embedUrl: 'https://www.playlab.ai/' }
+      { name: 'Thesis Sharpener', embedCode: '<iframe src="https://www.playlab.ai/" style="width:100%;aspect-ratio:16/10;border:none" allowfullscreen></iframe>' },
+      { name: 'Lab Report Coach', embedCode: '<iframe src="https://www.playlab.ai/" style="width:100%;aspect-ratio:16/10;border:none" allowfullscreen></iframe>' }
     ],
     learn: [
       { title: 'Doc Editor', url: 'https://learn.playlab.ai/features/Doc%20Editor' },
@@ -267,7 +255,6 @@ const FEATURES: Feature[] = [
           'Instruct the AI to verify with Python.',
           'Compare to a run without Python to feel the difference.'
         ],
-        estMinutes: 20
       },
       {
         name: 'Grow',
@@ -280,7 +267,6 @@ const FEATURES: Feature[] = [
           'Let students tweak parameters and re-plot.',
           'Add a reflection prompt at the end.'
         ],
-        estMinutes: 45
       },
       {
         name: 'Master',
@@ -293,12 +279,11 @@ const FEATURES: Feature[] = [
           'Offer tiered hints instead of full answers.',
           'Keep memory of common pitfalls per learner.'
         ],
-        estMinutes: 90
       }
     ],
     exampleApps: [
-      { name: 'Graph It', embedUrl: 'https://www.playlab.ai/' },
-      { name: 'Traceback Tutor', embedUrl: 'https://www.playlab.ai/' }
+      { name: 'Graph It', embedCode: '<iframe src="https://www.playlab.ai/" style="width:100%;aspect-ratio:16/10;border:none" allowfullscreen></iframe>' },
+      { name: 'Traceback Tutor', embedCode: '<iframe src="https://www.playlab.ai/" style="width:100%;aspect-ratio:16/10;border:none" allowfullscreen></iframe>' }
     ],
     learn: [
       { title: 'MCP Python Tool', url: 'https://learn.playlab.ai/features/MCP%20Python%20Tool' },
@@ -327,7 +312,6 @@ const FEATURES: Feature[] = [
           'Note: 1 thing the AI did well, 1 miss, 1 surprise.',
           'Share observations with a colleague.'
         ],
-        estMinutes: 20
       },
       {
         name: 'Grow',
@@ -340,7 +324,6 @@ const FEATURES: Feature[] = [
           'Fork a conversation from the flawed moment and re-test.',
           'Publish the update; log what changed.'
         ],
-        estMinutes: 45
       },
       {
         name: 'Master',
@@ -353,12 +336,11 @@ const FEATURES: Feature[] = [
           'Maintain a changelog of prompt edits and reasons.',
           'Invite a second educator into the review loop.'
         ],
-        estMinutes: 60
       }
     ],
     exampleApps: [
-      { name: 'Essay Coach (reviewed)', embedUrl: 'https://www.playlab.ai/' },
-      { name: 'Office Hours Bot', embedUrl: 'https://www.playlab.ai/' }
+      { name: 'Essay Coach (reviewed)', embedCode: '<iframe src="https://www.playlab.ai/" style="width:100%;aspect-ratio:16/10;border:none" allowfullscreen></iframe>' },
+      { name: 'Office Hours Bot', embedCode: '<iframe src="https://www.playlab.ai/" style="width:100%;aspect-ratio:16/10;border:none" allowfullscreen></iframe>' }
     ],
     learn: [
       { title: 'Individual App Activity Review', url: 'https://learn.playlab.ai/features/Individual%20App%20Activity%20Review' },
@@ -388,7 +370,6 @@ const FEATURES: Feature[] = [
           'Instruct the AI to cite the reference.',
           'Compare to the same question without the reference.'
         ],
-        estMinutes: 15
       },
       {
         name: 'Grow',
@@ -401,7 +382,6 @@ const FEATURES: Feature[] = [
           'Pin the most-used references.',
           'Swap your apps over to the shared library.'
         ],
-        estMinutes: 45
       },
       {
         name: 'Master',
@@ -414,12 +394,11 @@ const FEATURES: Feature[] = [
           'Test across 3 grade levels / 3 units.',
           'Pilot with colleagues teaching the same curriculum.'
         ],
-        estMinutes: 75
       }
     ],
     exampleApps: [
-      { name: 'IM Grade 7 Tutor', embedUrl: 'https://www.playlab.ai/' },
-      { name: 'Dept. Writing Rubric Coach', embedUrl: 'https://www.playlab.ai/' }
+      { name: 'IM Grade 7 Tutor', embedCode: '<iframe src="https://www.playlab.ai/" style="width:100%;aspect-ratio:16/10;border:none" allowfullscreen></iframe>' },
+      { name: 'Dept. Writing Rubric Coach', embedCode: '<iframe src="https://www.playlab.ai/" style="width:100%;aspect-ratio:16/10;border:none" allowfullscreen></iframe>' }
     ],
     learn: [
       { title: 'Workspace Reference Library Guide', url: 'https://learn.playlab.ai/features/Workspace%20Reference%20Library%20Guide' },

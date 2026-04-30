@@ -130,7 +130,6 @@ export default function ChallengeModal({ feature, theme, level, onClose }: {
               <div style={{fontWeight: 700, fontSize: 18, color:'#222', lineHeight: 1.25}}>
                 {lv.title}
               </div>
-              <span style={{fontSize: 11.5, color:'#888', whiteSpace:'nowrap'}}>~{lv.estMinutes} min</span>
             </div>
             <div style={{fontSize: 14, color:'#555', lineHeight: 1.55, marginBottom: 14}}>
               {lv.brief}
@@ -169,12 +168,7 @@ export default function ChallengeModal({ feature, theme, level, onClose }: {
             <div style={{display:'grid', gridTemplateColumns:'repeat(2, 1fr)', gap: 14}}>
               {feature.exampleApps.map((app, i) => (
                 <div key={i} style={{border: '1px solid #e7e2d4', borderRadius: 12, overflow: 'hidden'}}>
-                  <iframe
-                    src={app.embedUrl}
-                    style={{width: '100%', aspectRatio: '16/10', border: 'none', display: 'block'}}
-                    title={app.name}
-                    sandbox="allow-scripts allow-same-origin allow-forms"
-                  />
+                  <div dangerouslySetInnerHTML={{ __html: app.embedCode }} />
                   <div style={{padding: '10px 12px', fontWeight: 600, fontSize: 14, color: '#222'}}>{app.name}</div>
                 </div>
               ))}

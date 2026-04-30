@@ -18,13 +18,6 @@ function text(prop: unknown): string {
   return '';
 }
 
-function num(prop: unknown): number {
-  if (!prop || typeof prop !== 'object') return 0;
-  const p = prop as { type?: string; number?: number | null };
-  if (p.type === 'number') return p.number ?? 0;
-  return 0;
-}
-
 function splitLines(raw: string): string[] {
   return raw.split('\n').map(s => s.trim()).filter(Boolean);
 }
@@ -45,7 +38,6 @@ function parseLevel(props: Record<string, unknown>, prefix: 'Spark' | 'Grow' | '
     title: text(props[`${prefix} Title`]),
     brief: text(props[`${prefix} Brief`]),
     steps: splitLines(text(props[`${prefix} Steps`])),
-    estMinutes: num(props[`${prefix} Minutes`]),
   };
 }
 
@@ -58,8 +50,8 @@ function mapPageToFeature(page: PageObjectResponse): Feature {
   const app2Embed = text(props['App 2 Embed']);
 
   const exampleApps: ExampleApp[] = [];
-  if (app1Name && app1Embed) exampleApps.push({ name: app1Name, embedUrl: app1Embed });
-  if (app2Name && app2Embed) exampleApps.push({ name: app2Name, embedUrl: app2Embed });
+  if (app1Name && app1Embed) exampleApps.push({ name: app1Name, embedCode: app1Embed });
+  if (app2Name && app2Embed) exampleApps.push({ name: app2Name, embedCode: app2Embed });
 
   return {
     id: text(props['ID']),

@@ -5,7 +5,7 @@ export interface LearnLink {
 
 export interface ExampleApp {
   name: string;
-  embedUrl: string;
+  embedCode: string;
 }
 
 export interface Level {
@@ -13,7 +13,6 @@ export interface Level {
   title: string;
   brief: string;
   steps: string[];
-  estMinutes: number;
 }
 
 export interface GardenSpec {
