@@ -22,39 +22,25 @@ interface ProgressState {
   user: { name: string; email: string } | null;
 }
 
-function load(): ProgressState {
-  if (typeof window === 'undefined') {
-    return {
-      visitOrder: [],
-      completed: { garden: {}, lab: {}, playground: {} },
-      screen: 'hub',
-      currentTheme: null,
-      user: null
-    };
-  }
+const DEFAULT_STATE: ProgressState = {
+  visitOrder: [],
+  completed: { garden: {}, lab: {}, playground: {} },
+  screen: 'hub',
+  currentTheme: null,
+  user: null
+};
+
+function loadFromStorage(): ProgressState {
   try {
     const raw = localStorage.getItem(KEY);
-    if (raw) {
-      const parsed = JSON.parse(raw);
-      return Object.assign({
-        visitOrder: [],
-        completed: { garden: {}, lab: {}, playground: {} },
-        screen: 'hub',
-        currentTheme: null,
-        user: null
-      }, parsed);
-    }
+    if (raw) return Object.assign({ ...DEFAULT_STATE }, JSON.parse(raw));
   } catch (e) {}
-  return {
-    visitOrder: [],
-    completed: { garden: {}, lab: {}, playground: {} },
-    screen: 'hub',
-    currentTheme: null,
-    user: null
-  };
+  return { ...DEFAULT_STATE };
 }
 
-let state = load();
+// Always start with default so server and client render identically.
+// localStorage is loaded after mount in useEffect.
+let state: ProgressState = { ...DEFAULT_STATE };
 
 function save() {
   try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
@@ -128,19 +114,17 @@ function logout() {
 }
 
 function reset() {
-  state = {
-    visitOrder: [],
-    completed: { garden: {}, lab: {}, playground: {} },
-    screen: 'hub',
-    currentTheme: null,
-    user: state.user // keep user
-  };
+  state = { ...DEFAULT_STATE, user: state.user };
   save();
 }
 
 export function useProgress() {
   const [, force] = useState(0);
   useEffect(() => {
+    // Load from localStorage after mount so initial render matches SSR
+    const stored = loadFromStorage();
+    state = stored;
+    force(n => n + 1);
     const fn = () => force(n => n + 1);
     listeners.add(fn);
     return () => { listeners.delete(fn); };
